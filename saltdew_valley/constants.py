@@ -20,4 +20,5 @@ COLUMNS = 40
 ROWS = 20
 
 # Sprites
+FARMER_GROUP = "farmer"
 FARMER = "assets/Farmer_001.png"

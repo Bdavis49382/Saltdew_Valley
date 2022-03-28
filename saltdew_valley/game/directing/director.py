@@ -1,3 +1,4 @@
+from pyray import Image
 from game.casting.cast import Cast
 from game.casting.actor import Actor
 from game.casting.plant import Plant
@@ -10,6 +11,7 @@ from game.scripting.handle_collisions_action import Handle_collisions_action
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
+import raylib
 
 
 
@@ -38,6 +40,7 @@ class Director:
 
         self.video_service.open_window()
         while self.video_service.is_window_open():
+            Image("saltdew_valley/assets/TestMap.png")
             self._execute_actions("input", self._cast, self._script)
             self._execute_actions("update", self._cast, self._script)
             self._execute_actions("output", self._cast, self._script)
