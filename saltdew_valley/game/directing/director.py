@@ -13,7 +13,6 @@ from game.services.video_service import VideoService
 
 
 
-
 class Director:
     
     def __init__(self):
@@ -23,6 +22,7 @@ class Director:
 
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
+
 
         self._script = Script()
         self._script.add_action("input", ControlActorsAction(self.keyboard_service))

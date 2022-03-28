@@ -6,3 +6,4 @@ FONT_SIZE = 15
 COLUMNS = 40
 ROWS = 20
 FRAME_RATE = 15
+FARMER = "assets/Farmer_001.png"
