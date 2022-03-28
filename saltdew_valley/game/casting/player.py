@@ -1,4 +1,5 @@
-from actor import Actor
+from game.casting.actor import Actor
+
 class Player(Actor):
     """The farmer which can move around, farm, trade, and attempt to escape the inevitable snail
     

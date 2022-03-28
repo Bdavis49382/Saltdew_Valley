@@ -4,7 +4,7 @@ import pyray as raylib
 
 def main():
     director = Director()
-    map = raylib.drawTexture()
+    director.run_game()
 
 
 if __name__ == "__main__":

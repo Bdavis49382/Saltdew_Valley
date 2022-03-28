@@ -1,4 +1,5 @@
-from actor import Actor
+from game.casting.actor import Actor
+
 class Plant(Actor):
     """A plant is something that once planted, grows regularly, and can be harvested to recieve an item once finished growing
     

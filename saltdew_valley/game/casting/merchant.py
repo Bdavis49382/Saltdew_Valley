@@ -1,3 +1,4 @@
-from actor import Actor
+from game.casting.actor import Actor
+
 class Merchant(Actor):
     pass

@@ -1,4 +1,4 @@
-from action import Action
+from game.scripting.action import Action
 
 class Move_actors_action(Action):
     

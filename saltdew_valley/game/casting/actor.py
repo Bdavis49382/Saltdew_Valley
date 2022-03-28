@@ -11,5 +11,6 @@ class Actor():
         _velocity (Point): The speed and direction.
     """
     def __init__(self):
-        self._texture = Texture2D()
+        # self._texture = Texture2D()
+        pass
         

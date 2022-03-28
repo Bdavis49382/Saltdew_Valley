@@ -1,4 +1,5 @@
-from actor import Actor
+from game.casting.actor import Actor
+
 class Cast():
     """A collection of actors.
 
