@@ -1,3 +1,6 @@
+from constants import CELL_SIZE
+
+
 class Point:
     """A distance from a relative origin (0, 0).
 
@@ -58,6 +61,12 @@ class Point:
             integer: The vertical distance.
         """
         return self._y
+
+    def get_tiled_y(self):
+        return self._y/CELL_SIZE
+
+    def get_tiled_x(self):
+        return self._x/CELL_SIZE
 
     def scale(self, factor):
         """
