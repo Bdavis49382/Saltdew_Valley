@@ -41,7 +41,7 @@ class VideoService:
         y = actor.get_position().get_y()
         
         position = pyray.Vector2(x,y)
-        pyray.draw_texture_ex(texture,position,0,1,TINT)
+        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
         
         
     def draw_actors(self, actors, centered=False):
@@ -60,7 +60,7 @@ class VideoService:
         position = pyray.Vector2(0,0)
         
         
-        pyray.draw_texture_ex(texture,position,0,1,TINT)
+        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
        
     
     def flush_buffer(self):
