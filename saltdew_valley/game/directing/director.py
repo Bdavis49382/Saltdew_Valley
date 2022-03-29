@@ -21,6 +21,7 @@ class Director:
         self._cast = Cast()
 
         self._cast.add_actor("players",Player())
+        self._cast.add_actor("snails",Snail(self._cast.get_first_actor("players")))
 
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()

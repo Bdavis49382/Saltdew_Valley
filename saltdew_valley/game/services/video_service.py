@@ -99,6 +99,7 @@ class VideoService:
     def load_textures(self):
         self._textures[MAP] = pyray.load_texture(MAP)
         self._textures[FARMER] = pyray.load_texture(FARMER)
+        self._textures[SNAIL] = pyray.load_texture(SNAIL)
 
 
     def unload_images(self):

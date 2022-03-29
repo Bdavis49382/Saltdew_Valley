@@ -26,5 +26,8 @@ FARMER = "saltdew_valley/assets/Farmer_001.png"
 FARMER_STARTING_X = 6
 FARMER_STARTING_Y = 9
 
+SNAIL = "saltdew_valley/assets/Snail_001.png"
+SNAIL_STARTING_X = 20
+SNAIL_STARTING_Y = 9
 
 MAP = "saltdew_valley/assets/TestMap.png"

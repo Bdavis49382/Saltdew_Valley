@@ -1,7 +1,8 @@
 
-import constants
+from constants import *
 from game.scripting.action import Action
 from game.shared.point import Point
+from game.shared.tile import Tile
 
 
 class ControlActorsAction(Action):
@@ -20,7 +21,6 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._direction = Point(constants.CELL_SIZE, 0)
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -28,23 +28,28 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        # cycle1_turns = False
         
-        # left
+        
+        player = cast.get_first_actor("players")
+
+            # left
         if self._keyboard_service.is_key_down('a'):
-            self._direction = Point(-constants.CELL_SIZE, 0)
+            player.set_velocity(Tile(-.5, 0))
         
-        # right
-        if self._keyboard_service.is_key_down('d'):
-            self._direction = Point(constants.CELL_SIZE, 0)
+            # right
+        elif self._keyboard_service.is_key_down('d'):
+            player.set_velocity(Tile(.5, 0))
 
-        # up
-        if self._keyboard_service.is_key_down('w'):
-            self._direction = Point(0, -constants.CELL_SIZE)
+            # up
+        elif self._keyboard_service.is_key_down('w'):
+            player.set_velocity(Tile(0, -.5))
 
-        # down
-        if self._keyboard_service.is_key_down('s'):
-            self._direction = Point(0, constants.CELL_SIZE)
+            # down
+        elif self._keyboard_service.is_key_down('s'):
+            player.set_velocity(Tile(0,.5))
+
+        else:
+            player.set_velocity(Tile(0,0))
 
 
 

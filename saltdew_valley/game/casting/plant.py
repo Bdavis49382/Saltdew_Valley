@@ -9,4 +9,15 @@ class Plant(Actor):
             _growth_rate(float): the rate at which the plant is growing, dependant on how close it is to water
             _type(String): the type of plant. ex: wheat, potato, carrot, etc.
     """
-    pass
+    def __init__(self,position,type):
+        super().__init__()
+        self._growth_level = 0
+        self._position = position
+        self._growth_rate = 1
+        self._type = type
+        self._texture = ""
+    
+    def grow(self):
+        self._growth_level +=1
+
+    

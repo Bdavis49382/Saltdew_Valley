@@ -1,7 +1,8 @@
+from constants import *
 from game.shared.point import Point
 class Tile(Point):
     def __init__(self, x, y):
-        super().__init__(x*16, y*16)
+        super().__init__(x*CELL_SIZE, y*CELL_SIZE)
         self.tiled_x = x
         self.tiled_y = y
     

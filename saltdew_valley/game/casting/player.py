@@ -18,4 +18,4 @@ class Player(Actor):
         super().__init__()
         self._texture = FARMER
         self._position = Tile(FARMER_STARTING_X,FARMER_STARTING_Y)
-        self._velocity = Tile(.5,0)
+        self._velocity = Tile(0,0)

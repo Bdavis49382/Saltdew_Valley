@@ -28,3 +28,6 @@ class Actor():
     
     def get_velocity(self):
         return self._velocity
+
+    def set_velocity(self,velocity):
+        self._velocity = velocity
