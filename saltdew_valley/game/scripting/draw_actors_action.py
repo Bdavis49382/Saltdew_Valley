@@ -31,5 +31,5 @@ class DrawActorsAction(Action):
 
         self._video_service.clear_buffer()
         self._video_service.draw_background()
-        self._video_service.draw_actors("players")
+        self._video_service.draw_actors(cast.get_actors("players"))
         self._video_service.flush_buffer()

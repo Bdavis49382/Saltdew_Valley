@@ -1,5 +1,5 @@
 import pyray
-import constants
+from constants import *
 
 class VideoService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state 
@@ -12,6 +12,9 @@ class VideoService:
         Args:
             debug (bool): whether or not to draw in debug mode.
         """
+        self._textures = {}
+        
+        
         self._debug = debug
 
     def close_window(self):
@@ -33,6 +36,12 @@ class VideoService:
         Args:
             actor (Actor): The actor to draw.
         """ 
+        texture = self._textures[actor.get_texture()]
+        x = actor.get_position().get_x()
+        y = actor.get_position().get_y()
+        
+        position = pyray.Vector2(x,y)
+        pyray.draw_texture_ex(texture,position,0,1,TINT)
         
         
     def draw_actors(self, actors, centered=False):
@@ -46,8 +55,13 @@ class VideoService:
 
     def draw_background(self):
         """Draws the background on the screen"""
-
-        pass
+        texture = self._textures[MAP]
+        # texture = pyray.load_texture(MAP)
+        position = pyray.Vector2(0,0)
+        
+        
+        pyray.draw_texture_ex(texture,position,0,1,TINT)
+       
     
     def flush_buffer(self):
         """Copies the buffer contents to the screen. This method should be called at the end of
@@ -61,6 +75,7 @@ class VideoService:
         Returns:
             bool: True if the window is closing; false if otherwise.
         """
+        
         return not pyray.window_should_close()
 
     def open_window(self):
@@ -69,17 +84,29 @@ class VideoService:
         Args:
             title (string): The title of the window.
         """
-        pyray.init_window(constants.MAX_X, constants.MAX_Y, constants.CAPTION)
-        pyray.set_target_fps(constants.FRAME_RATE)
+        
+        pyray.init_window( MAX_X,  MAX_Y,  CAPTION)
+        pyray.set_target_fps( FRAME_RATE)
 
     def _draw_grid(self):
         """Draws a grid on the screen."""
-        for y in range(0, constants.MAX_Y, constants.CELL_SIZE):
-            pyray.draw_line(0, y, constants.MAX_X, y, pyray.GRAY)
+        for y in range(0,  MAX_Y,  CELL_SIZE):
+            pyray.draw_line(0, y,  MAX_X, y, pyray.GRAY)
             
-        for x in range(0, constants.MAX_X, constants.CELL_SIZE):
-            pyray.draw_line(x, 0, x, constants.MAX_Y, pyray.GRAY)
+        for x in range(0,  MAX_X,  CELL_SIZE):
+            pyray.draw_line(x, 0, x,  MAX_Y, pyray.GRAY)
     
+    def load_textures(self):
+        self._textures[MAP] = pyray.load_texture(MAP)
+        self._textures[FARMER] = pyray.load_texture(FARMER)
+
+
+    def unload_images(self):
+        for texture in self._textures.values():
+            pyray.unload_texture(texture)
+        self._textures.clear()
+
+
     def _get_x_offset(self, text, font_size):
         width = pyray.measure_text(text, font_size)
         return int(width / 2)

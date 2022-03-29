@@ -24,8 +24,9 @@ class Director:
 
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
-
-
+        
+        
+        
         self._script = Script()
         self._script.add_action("input", ControlActorsAction(self.keyboard_service))
         self._script.add_action("update", Move_actors_action())
@@ -39,12 +40,17 @@ class Director:
     def run_game(self):
 
         self.video_service.open_window()
+        self.video_service.load_textures()
+
         while self.video_service.is_window_open():
-            Image("saltdew_valley/assets/TestMap.png")
+            
             self._execute_actions("input", self._cast, self._script)
             self._execute_actions("update", self._cast, self._script)
             self._execute_actions("output", self._cast, self._script)
+
+        self.video_service.unload_images()
         self.video_service.close_window()
+        
     
     def _execute_actions(self, group, cast, script):
         """Calls execute for each action in the given group.

@@ -20,5 +20,5 @@ class Move_actors_action(Action):
         #     actor.move_next()
             
         for player in cast.get_actors("players"):
-            player
+            player.move_next()
     
