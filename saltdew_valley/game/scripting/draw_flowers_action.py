@@ -9,15 +9,9 @@ class DrawFlowersAction(Action):
         
     def execute(self, cast, script, callback):
         flowers = cast.get_actors(FLOWER_GROUP)
-        
+        self._video_service.clear_buffer()
         for flower in flowers:
-            body = flower.get_body()
-
-            # if brick.is_debug():
-            #     rectangle = body.get_rectangle()
-            #     self._video_service.draw_rectangle(rectangle, PURPLE)
-                
-            animation = flower.get_animation()
-            image = animation.next_image()
-            position = body.get_position()
-            self._video_service.draw_image(image, position)
+            
+            self._video_service.draw_flower(flowers)
+        
+        self._video_service.flush_buffer()

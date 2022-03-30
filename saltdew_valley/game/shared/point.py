@@ -79,3 +79,12 @@ class Point:
             Point: A new Point that is scaled.
         """
         return Point(self._x * factor, self._y * factor)
+
+    def __mul__(self, other):
+        if (type(other == int) or type(other)==float):
+            return self.scale(other)
+        else:
+            raise(ValueError)
+
+    def __rmul__(self, other):
+        return other * self

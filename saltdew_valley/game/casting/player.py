@@ -26,7 +26,7 @@ class Player(Actor):
     def move_next(self):
         super().move_next()
         self._clock+=1
-        if(self._clock%FAST_AGING==0):
+        if(self._clock%NORMAL_AGING==0):
             self._age+=1
         
     def calculate_max_speed(self):

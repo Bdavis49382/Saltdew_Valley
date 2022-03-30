@@ -12,6 +12,8 @@ FRAME_RATE = 15
 FAST_AGING = 10
 NORMAL_AGING = 100
 
+SNAIL_MOVEMENT_RATE = .25
+
 # Screen
 MAX_X = 1185
 MAX_Y = 455
@@ -44,4 +46,4 @@ SNAIL_STARTING_Y = 9
 MAP = "saltdew_valley/assets/TestMap.png"
 
 FLOWER_GROUP = "flowers"
-ROSES = [f"Saltdew_Valley/saltdew_valley/assets/roses{n}.png" for n in range(1, 6)]
+ROSES = [f"saltdew_valley/assets/roses{n}.png" for n in range(1, 7)]

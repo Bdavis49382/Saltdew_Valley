@@ -14,6 +14,7 @@ from game.scripting.draw_actors_action import DrawActorsAction
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.shared.tile import Tile
+from game.casting.rose import Rose
 
 import raylib
 
@@ -32,6 +33,8 @@ class Director:
 
         self._cast.add_actor("text_bars",Text_bar("Age:",Tile(1,0)))
         self._cast.add_actor("text_bars",Text_bar("Salt: ",Tile(1,2)))
+
+        self._cast.add_actor(FLOWER_GROUP,Rose())
 
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
@@ -53,6 +56,7 @@ class Director:
         self.video_service.open_window()
         self.video_service.load_textures()
         self.video_service.load_fonts()
+        # self.video_service.load_animations()
 
         while self.video_service.is_window_open():
             
@@ -62,6 +66,7 @@ class Director:
 
         self.video_service.unload_fonts()
         self.video_service.unload_textures()
+        # self.video_service.unload_animations()
         self.video_service.close_window()
         
     

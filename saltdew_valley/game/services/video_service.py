@@ -15,7 +15,8 @@ class VideoService:
         """
         self._textures = {}
         self._fonts = {}
-        
+        self._animations = {}
+
         self._debug = debug
 
     def close_window(self):
@@ -43,7 +44,16 @@ class VideoService:
         
         position = pyray.Vector2(x,y)
         pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
-        
+    
+    def draw_flower(self, flower):
+        animation = flower.get_animation()
+        image = animation.next_image()
+        texture = self._textures[image]
+        x = flower.get_position().get_x()
+        y = flower.get_position().get_y()
+        print(image)
+        position = pyray.Vector2(x,y)
+        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
         
     def draw_actors(self, actors, centered=False):
         """Draws the text for the given list of actors on the screen.
@@ -126,7 +136,14 @@ class VideoService:
         self._textures[MAP] = pyray.load_texture(MAP)
         self._textures[FARMER] = pyray.load_texture(FARMER)
         self._textures[SNAIL] = pyray.load_texture(SNAIL)
+        for n in ROSES:
+            self._textures[n] = pyray.load_texture(n)
 
+    # def load_animations(self):
+    #     self._animations["roses"] = []
+    #     for n in ROSES:
+    #         self._animations["roses"].append(pyray.load_texture(n))
+        
 
     def unload_fonts(self):
         for font in self._fonts.values():
@@ -140,6 +157,12 @@ class VideoService:
             
             pyray.unload_texture(texture)
         self._textures.clear()
+
+    # def unload_animations(self):
+    #     for animation in self._animations.values():
+    #         for texture in animation:
+    #             pyray.unload_texture(texture)
+    #     self._animations.clear()
 
 
     def _get_x_offset(self, text, font_size):

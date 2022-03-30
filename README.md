@@ -1,5 +1,5 @@
 # Saltdew_Valley
-An amazing game not at all inspired by a beloved hit by the name Stardew Valley... but with snails!
+An amazing game not at all inspired by a beloved hit by the name Stardew Valley... but with snails! Avoid the snail or you will die! However, don't be afraid to accept your fate.
 
 
 ## Getting Started
