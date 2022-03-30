@@ -32,21 +32,23 @@ class ControlActorsAction(Action):
         
         player = cast.get_first_actor("players")
 
+        max_speed = player.calculate_max_speed()
+
             # left
         if self._keyboard_service.is_key_down('a'):
-            player.set_velocity(Tile(-.5, 0))
+            player.set_velocity(Tile(-max_speed, 0))
         
             # right
         elif self._keyboard_service.is_key_down('d'):
-            player.set_velocity(Tile(.5, 0))
+            player.set_velocity(Tile(max_speed, 0))
 
             # up
         elif self._keyboard_service.is_key_down('w'):
-            player.set_velocity(Tile(0, -.5))
+            player.set_velocity(Tile(0, -max_speed))
 
             # down
         elif self._keyboard_service.is_key_down('s'):
-            player.set_velocity(Tile(0,.5))
+            player.set_velocity(Tile(0,max_speed))
 
         else:
             player.set_velocity(Tile(0,0))

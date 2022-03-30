@@ -1,5 +1,6 @@
 import pyray
 from constants import *
+import time
 
 class VideoService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state 
@@ -13,7 +14,7 @@ class VideoService:
             debug (bool): whether or not to draw in debug mode.
         """
         self._textures = {}
-        
+        self._fonts = {}
         
         self._debug = debug
 
@@ -50,8 +51,29 @@ class VideoService:
         Args:
             actors (list): A list of actors to draw.
         """ 
+        
         for actor in actors:
             self.draw_actor(actor, centered)
+
+    def draw_text_bars(self,cast,text_bars):
+        """Draws all the text from a list of text_bars"""
+
+        for text_bar in text_bars:
+            x = text_bar.get_position().get_x()
+            y = text_bar.get_position().get_y()
+            text = text_bar.get_text()
+            if 'Age' in text:
+                age = cast.get_first_actor("players").get_age()
+                text_bar.set_text(f'Age: {age}')
+
+            if 'Salt' in text:
+                
+                salt = cast.get_first_actor("players").get_salt()
+                text_bar.set_text(f'Salt: {salt}')
+
+            pyray.draw_text_ex(self._fonts[FONT_FILE], text_bar.get_text(), pyray.Vector2(x,y), FONT_LARGE, 0, BLACK_TINT)
+
+
 
     def draw_background(self):
         """Draws the background on the screen"""
@@ -96,14 +118,26 @@ class VideoService:
         for x in range(0,  MAX_X,  CELL_SIZE):
             pyray.draw_line(x, 0, x,  MAX_Y, pyray.GRAY)
     
+    def load_fonts(self):
+        self._fonts[FONT_FILE] = pyray.load_font(FONT_FILE)
+
     def load_textures(self):
+
         self._textures[MAP] = pyray.load_texture(MAP)
         self._textures[FARMER] = pyray.load_texture(FARMER)
         self._textures[SNAIL] = pyray.load_texture(SNAIL)
 
 
-    def unload_images(self):
+    def unload_fonts(self):
+        for font in self._fonts.values():
+            pyray.unload_font(font)
+        self._fonts.clear()
+
+
+
+    def unload_textures(self):
         for texture in self._textures.values():
+            
             pyray.unload_texture(texture)
         self._textures.clear()
 

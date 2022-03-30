@@ -9,16 +9,27 @@ from game.shared.color import Color
 CAPTION = "Saltdew Valley"
 FRAME_RATE = 15
 
+FAST_AGING = 10
+NORMAL_AGING = 100
+
 # Screen
 MAX_X = 1185
 MAX_Y = 455
 
 NO_TINT = pyray.Color(255,255,255,255)
+BLACK_TINT = pyray.Color(0,0,0,255)
 
 CELL_SIZE = 16
 FONT_SIZE = 15
 COLUMNS = 40
 ROWS = 20
+
+# Text
+FONT_FILE = "saltdew_valley/assets/Quicksand-Bold.otf"
+FONT_LARGE = 48
+ALIGN_LEFT = 1
+
+
 
 # Sprites
 FARMER_GROUP = "players"

@@ -33,4 +33,5 @@ class DrawActorsAction(Action):
         self._video_service.draw_background()
         self._video_service.draw_actors(cast.get_actors("players"))
         self._video_service.draw_actors(cast.get_actors("snails"))
+        self._video_service.draw_text_bars(cast,cast.get_actors("text_bars"))
         self._video_service.flush_buffer()
