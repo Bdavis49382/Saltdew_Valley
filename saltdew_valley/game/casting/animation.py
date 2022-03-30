@@ -50,7 +50,7 @@ class Animation:
         image = Image(filename)
         current = time.time()
         elapsed = current - self._start
-
+        
         if elapsed > self._delay:
             self._frame += 1
             
@@ -61,6 +61,7 @@ class Animation:
             image = Image(filename)
             
             if self._index >= len(self._images) - 1:
+                self._delay = 600
                 self._start = current
 
         return image.get_filename()

@@ -7,11 +7,9 @@ class DrawFlowersAction(Action):
     def __init__(self, video_service):
         self._video_service = video_service
         
-    def execute(self, cast, script, callback):
+    def execute(self, cast, script):
         flowers = cast.get_actors(FLOWER_GROUP)
-        self._video_service.clear_buffer()
         for flower in flowers:
             
-            self._video_service.draw_flower(flowers)
+            self._video_service.draw_flower(flower)
         
-        self._video_service.flush_buffer()

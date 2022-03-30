@@ -11,12 +11,18 @@ from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import Move_actors_action
 from game.scripting.handle_collisions_action import Handle_collisions_action
 from game.scripting.draw_actors_action import DrawActorsAction
+from game.scripting.draw_flowers_action import DrawFlowersAction
+from game.scripting.start_drawing_action import StartDrawingAction
+from game.scripting.end_drawing_action import EndDrawingAction
+
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.shared.tile import Tile
 from game.casting.rose import Rose
 
 import raylib
+
+
 
 
 
@@ -39,13 +45,16 @@ class Director:
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
         
-        self._clock = 0
+        
         
         self._script = Script()
         self._script.add_action("input", ControlActorsAction(self.keyboard_service))
         self._script.add_action("update", Move_actors_action())
         self._script.add_action("update", Handle_collisions_action())
+        self._script.add_action("output", StartDrawingAction(self.video_service))
         self._script.add_action("output", DrawActorsAction(self.video_service))
+        self._script.add_action("output", DrawFlowersAction(self.video_service))
+        self._script.add_action("output", EndDrawingAction(self.video_service))
 
 
         

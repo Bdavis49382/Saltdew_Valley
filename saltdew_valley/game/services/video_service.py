@@ -51,9 +51,10 @@ class VideoService:
         texture = self._textures[image]
         x = flower.get_position().get_x()
         y = flower.get_position().get_y()
-        print(image)
+        
         position = pyray.Vector2(x,y)
         pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
+        
         
     def draw_actors(self, actors, centered=False):
         """Draws the text for the given list of actors on the screen.
