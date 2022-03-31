@@ -88,12 +88,7 @@ SCYTHE = "saltdew_valley/assets/images/scythe.png"
 
 # Hotbar
 HOTBAR_GROUP = "hotbar"
-<<<<<<< HEAD
-HOTBAR = "saltdew_valley/assets/hotbar.png"
-HOTBAR_X = (MAX_X // 2) - 250
-HOTBAR_Y = MAX_Y - 80
-=======
+
 HOTBAR = "saltdew_valley/assets/images/hotbar.png"
 HOTBAR_X = (MAP_MAX_X // 2) - 250
 HOTBAR_Y = MAP_MAX_Y - 80
->>>>>>> 42f156a17cb36243b30f8a7f6c23ac383f101f01
