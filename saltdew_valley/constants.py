@@ -14,14 +14,27 @@ NORMAL_AGING = 100
 
 SNAIL_MOVEMENT_RATE = .25
 
+SAVE_FILE = "saltdew_valley/assets/save_file.txt"
+
 # Screen
-MAX_X = 1185
-MAX_Y = 455
+
+MAP_MAX_X = 1185
+MAP_MAX_Y = 455
+
+pyray.init_window(0,0,"title")
+# print(pyray.get_screen_width())
+SCALE = pyray.get_screen_width()/1185
+
+pyray.close_window()
+
+MAX_X = MAP_MAX_X * SCALE
+MAX_Y = MAP_MAX_Y * SCALE
 
 NO_TINT = pyray.Color(255,255,255,255)
 BLACK_TINT = pyray.Color(0,0,0,255)
 
-CELL_SIZE = 16
+
+CELL_SIZE = 16 * SCALE
 FONT_SIZE = 15
 COLUMNS = 40
 ROWS = 20

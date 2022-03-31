@@ -1,5 +1,6 @@
 from constants import *
 from game.casting.actor import Actor
+from game.shared.tile import Tile
 class Text_bar(Actor):
     """A line of text that has a position somewhere on the screen
     
@@ -12,7 +13,7 @@ class Text_bar(Actor):
     """corner_displays(Money and Age) and commentators"""
     """A text message."""
 
-    def __init__(self, text, position, fontfile = FONT_FILE, size = FONT_LARGE, alignment = ALIGN_LEFT):
+    def __init__(self, text = '', position = Tile(0,0), fontfile = FONT_FILE, size = FONT_LARGE, alignment = ALIGN_LEFT):
         """Constructs a new Text."""
         super().__init__()
         self._text = text
@@ -23,6 +24,9 @@ class Text_bar(Actor):
 
     def get_position(self):
         return self._position
+
+    def set_position(self,position):
+        self._position = position
 
     def get_alignment(self):
         """Gets the alignment for the text.
@@ -63,3 +67,11 @@ class Text_bar(Actor):
             A string containing the text's text.
         """
         self._text = text
+
+    def create_save(self):
+        data_string = f'Text_bar,{self._position.get_tiled_x()},{self._position.get_tiled_y()},{self._text}'
+        return data_string
+
+    def load_save(self, data):
+        self._position = Tile(float(data[0]),float(data[1]))
+        self._text = data[2]

@@ -3,8 +3,9 @@ from game.casting.text_bar import Text_bar
 from game.shared.tile import Tile
 class Handle_collisions_action(Action):
 
-    def __init__(self) -> None:
+    def __init__(self,callback) -> None:
         super().__init__()
+        self._callback = callback
     
 
 
@@ -19,3 +20,5 @@ class Handle_collisions_action(Action):
         if player.get_position().equals(snail.get_position()):
 
             cast.add_actor("text_bars",Text_bar("Game Over ",Tile(1,4)))
+
+            self._callback.game_over()

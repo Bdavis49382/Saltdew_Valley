@@ -40,6 +40,15 @@ class Animation:
         """
         return self._rate
 
+    def reset_start_time(self):
+        self._start = 0
+
+    def get_index(self):
+        return self._index
+
+    def set_index(self,index):
+        self._index = index
+
     def next_image(self):
         """Gets the next image to display.
 

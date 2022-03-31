@@ -31,3 +31,12 @@ class Actor():
 
     def set_velocity(self,velocity):
         self._velocity = velocity
+    
+    def create_save(self):
+        """outputs a string with the necessary information for it to be reloaded the next time the game is played.
+         Each child of actor will have their own implementation"""
+        return ''
+
+    def load_save(self,data):
+        """takes a list of information and loads the information into the new actor"""
+        pass

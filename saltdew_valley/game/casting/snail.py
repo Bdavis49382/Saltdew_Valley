@@ -28,3 +28,10 @@ class Snail(Actor):
         # my_y += .05 if that_y > my_y else -.05
         # self._position = Tile((my_x),(my_y))
 
+    def create_save(self):
+        data_string = f'Snail,{self._position.get_tiled_x()},{self._position.get_tiled_y()}'
+        return data_string
+    
+    def load_save(self, data):
+        self._position = Tile(float(data[0]),float(data[1]))
+

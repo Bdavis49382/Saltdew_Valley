@@ -19,6 +19,8 @@ class VideoService:
 
         self._debug = debug
 
+        
+
     def close_window(self):
         """Closes the window and releases all computing resources."""
         pyray.close_window()
@@ -43,7 +45,7 @@ class VideoService:
         y = actor.get_position().get_y()
         
         position = pyray.Vector2(x,y)
-        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
+        pyray.draw_texture_ex(texture,position,0,SCALE,NO_TINT)
     
     def draw_flower(self, flower):
         animation = flower.get_animation()
@@ -53,7 +55,7 @@ class VideoService:
         y = flower.get_position().get_y()
         
         position = pyray.Vector2(x,y)
-        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
+        pyray.draw_texture_ex(texture,position,0,SCALE,NO_TINT)
         
         
     def draw_actors(self, actors, centered=False):
@@ -93,7 +95,7 @@ class VideoService:
         position = pyray.Vector2(0,0)
         
         
-        pyray.draw_texture_ex(texture,position,0,1,NO_TINT)
+        pyray.draw_texture_ex(texture,position,0,SCALE,NO_TINT)
        
     
     def flush_buffer(self):
@@ -118,7 +120,7 @@ class VideoService:
             title (string): The title of the window.
         """
         
-        pyray.init_window( MAX_X,  MAX_Y,  CAPTION)
+        pyray.init_window( int(MAX_X),  int(MAX_Y),  CAPTION)
         pyray.set_target_fps( FRAME_RATE)
 
     def _draw_grid(self):
