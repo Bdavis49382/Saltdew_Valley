@@ -69,7 +69,7 @@ FLOWER_GROUP = "flowers"
 ROSES = [f"saltdew_valley/assets/images/roses{n}.png" for n in range(1, 7)]
 
 #Tilled Ground
-TILLED_GROUND = "saltdew_valley/assets/tilled_ground.png"
+TILLED_GROUND = "saltdew_valley/assets/images/tilled_ground.png"
 
 # Borderbox
 BORDER_BOX = "saltdew_valley/assets/images/placebox.png"
