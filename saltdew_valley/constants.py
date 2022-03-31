@@ -16,7 +16,6 @@ SNAIL_MOVEMENT_RATE = .25
 
 SAVE_GAME_MODE = False
 
-SAVE_FILE = "saltdew_valley/assets/save_file.txt"
 SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
 
 REACH = 5
