@@ -14,13 +14,10 @@ NORMAL_AGING = 100
 
 SNAIL_MOVEMENT_RATE = .25
 
-<<<<<<< HEAD
 SAVE_GAME_MODE = False
 
 SAVE_FILE = "saltdew_valley/assets/save_file.txt"
-=======
 SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
->>>>>>> 42f156a17cb36243b30f8a7f6c23ac383f101f01
 
 REACH = 5
 
