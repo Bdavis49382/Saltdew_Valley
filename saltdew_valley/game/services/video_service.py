@@ -1,7 +1,7 @@
 import pyray
 from constants import *
 import time
-
+from game.shared.point import Point
 class VideoService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state 
     on the screen. 
@@ -56,7 +56,22 @@ class VideoService:
         
         position = pyray.Vector2(x,y)
         pyray.draw_texture_ex(texture,position,0,SCALE,NO_TINT)
-        
+    
+    def draw_hotbar(self,hotbar):
+        self.draw_actor(hotbar,False)
+        for i in range(0,len(hotbar.get_slots())):
+            
+            item = hotbar.get_slots()[i]
+            texture = self._textures[item.get_texture()]
+            x = hotbar.get_position().get_x()+(16*SCALE)+(i*32*SCALE)
+            y = hotbar.get_position().get_y()+(16*SCALE)+(i*32*SCALE)
+            position = pyray.Vector2(x,y)
+
+            if i == hotbar.get_index():
+                pyray.draw_texture_ex(self._textures[BORDER_BOX],pyray.Vector2(x-1,y-1),0,SCALE*2,NO_TINT)
+
+            pyray.draw_texture_ex(texture,position,0,SCALE*2,NO_TINT)
+
         
     def draw_actors(self, actors, centered=False):
         """Draws the text for the given list of actors on the screen.
@@ -147,6 +162,7 @@ class VideoService:
         self._textures[HOE] = pyray.load_texture(HOE)
         self._textures[SCYTHE] = pyray.load_texture(SCYTHE)
         self._textures[WATERING_CAN] = pyray.load_texture(WATERING_CAN)
+        self._textures[TILLED_GROUND] = pyray.load_texture(TILLED_GROUND)
         self._textures[BORDER_BOX] = pyray.load_texture(BORDER_BOX)
         self._textures[HOTBAR] = pyray.load_texture(HOTBAR)
         

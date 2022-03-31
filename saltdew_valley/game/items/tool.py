@@ -1,5 +1,4 @@
-import imp
-from item import Item
+from game.items.item import Item
 class Tool(Item):
     """An item that can interact with something without placing anything"""
     def can_interact(self,tile):

@@ -6,6 +6,7 @@ from game.casting.plant import Plant
 from game.casting.player import Player
 from game.casting.snail import Snail
 from game.casting.text_bar import Text_bar
+from game.casting.tilled_ground import Tilled_ground
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import Move_actors_action
@@ -40,7 +41,7 @@ class Director:
         self._cast = Cast()
 
         self.load_game()
-        
+        self._cast.add_actor("tilled_ground",Tilled_ground(Tile(FARMER_STARTING_X,FARMER_STARTING_Y+3)))
         
         self._is_game_over = False
 
@@ -111,7 +112,7 @@ class Director:
         try:
             with open(SAVE_FILE,'r') as save_file:
                 actors = save_file.readlines()
-                if len(actors) >2:
+                if len(actors) >2 and SAVE_GAME_MODE:
                     for actor in actors:
                         if len(actor) >1:
                             data = actor.split(',')

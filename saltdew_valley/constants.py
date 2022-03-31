@@ -14,6 +14,8 @@ NORMAL_AGING = 100
 
 SNAIL_MOVEMENT_RATE = .25
 
+SAVE_GAME_MODE = False
+
 SAVE_FILE = "saltdew_valley/assets/save_file.txt"
 
 REACH = 5
@@ -65,6 +67,9 @@ MAP = "saltdew_valley/assets/finished map.png"
 FLOWER_GROUP = "flowers"
 ROSES = [f"saltdew_valley/assets/roses{n}.png" for n in range(1, 7)]
 
+#Tilled Ground
+TILLED_GROUND = "saltdew_valley/assets/tilled_ground.png"
+
 # Borderbox
 BORDER_BOX = "saltdew_valley/assets/placebox.png"
 
@@ -77,8 +82,11 @@ HOE = "saltdew_valley/assets/hoe.png"
 # Scythe
 SCYTHE = "saltdew_valley/assets/sythe.png"
 
+
+
+
 # Hotbar
 HOTBAR_GROUP = "hotbar"
 HOTBAR = "saltdew_valley/assets/hotbar.png"
-HOTBAR_X = (MAP_MAX_X // 2) - 250
-HOTBAR_Y = MAP_MAX_Y - 80
+HOTBAR_X = (MAX_X // 2) - 250
+HOTBAR_Y = MAX_Y - 80

@@ -7,5 +7,9 @@ class Item():
             _texture(texture2d): the visible image for use in the hotbar
             _name(String): the name of the item
     """
-    pass
+    def __init__(self) -> None:
+        self._texture = ''
+    
+    def get_texture(self):
+        return self._texture
     
