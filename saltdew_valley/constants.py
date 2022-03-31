@@ -18,12 +18,12 @@ SAVE_FILE = "saltdew_valley/assets/save_file.txt"
 
 # Screen
 
-MAP_MAX_X = 1185
-MAP_MAX_Y = 455
+MAP_MAX_X = 1801
+MAP_MAX_Y = 809
 
 pyray.init_window(0,0,"title")
 # print(pyray.get_screen_width())
-SCALE = pyray.get_screen_width()/1185
+SCALE = pyray.get_screen_width()/MAP_MAX_X
 
 pyray.close_window()
 
@@ -56,7 +56,7 @@ SNAIL = "saltdew_valley/assets/Snail_001.png"
 SNAIL_STARTING_X = 20
 SNAIL_STARTING_Y = 9
 
-MAP = "saltdew_valley/assets/TestMap.png"
+MAP = "saltdew_valley/assets/finished map.png"
 
 FLOWER_GROUP = "flowers"
 ROSES = [f"saltdew_valley/assets/roses{n}.png" for n in range(1, 7)]
