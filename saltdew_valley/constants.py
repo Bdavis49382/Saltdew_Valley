@@ -14,7 +14,7 @@ NORMAL_AGING = 100
 
 SNAIL_MOVEMENT_RATE = .25
 
-SAVE_FILE = "saltdew_valley/assets/save_file.txt"
+SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
 
 REACH = 5
 
@@ -42,7 +42,7 @@ COLUMNS = 40
 ROWS = 20
 
 # Text
-FONT_FILE = "saltdew_valley/assets/Quicksand-Bold.otf"
+FONT_FILE = "saltdew_valley/assets/fonts/Quicksand-Bold.otf"
 FONT_LARGE = 48
 ALIGN_LEFT = 1
 
@@ -50,35 +50,35 @@ ALIGN_LEFT = 1
 
 # Sprites
 FARMER_GROUP = "players"
-FARMER = "saltdew_valley/assets/Farmer_001.png"
+FARMER = "saltdew_valley/assets/images/Farmer_001.png"
 FARMER_STARTING_X = 6
 FARMER_STARTING_Y = 9
 
-SNAIL = "saltdew_valley/assets/Snail_001.png"
+SNAIL = "saltdew_valley/assets/images/Snail_001.png"
 SNAIL_STARTING_X = 20
 SNAIL_STARTING_Y = 9
 
 # Map
-MAP = "saltdew_valley/assets/finished map.png"
+MAP = "saltdew_valley/assets/images/finished map.png"
 
 # Roses
 FLOWER_GROUP = "flowers"
-ROSES = [f"saltdew_valley/assets/roses{n}.png" for n in range(1, 7)]
+ROSES = [f"saltdew_valley/assets/images/roses{n}.png" for n in range(1, 7)]
 
 # Borderbox
-BORDER_BOX = "saltdew_valley/assets/placebox.png"
+BORDER_BOX = "saltdew_valley/assets/images/placebox.png"
 
 # Watering Can
-WATERING_CAN = "saltdew_valley/assets/bucket.png"
+WATERING_CAN = "saltdew_valley/assets/images/bucket.png"
 
 # Hoe
-HOE = "saltdew_valley/assets/hoe.png"
+HOE = "saltdew_valley/assets/images/hoe.png"
 
 # Scythe
-SCYTHE = "saltdew_valley/assets/sythe.png"
+SCYTHE = "saltdew_valley/assets/images/scythe.png"
 
 # Hotbar
 HOTBAR_GROUP = "hotbar"
-HOTBAR = "saltdew_valley/assets/hotbar.png"
+HOTBAR = "saltdew_valley/assets/images/hotbar.png"
 HOTBAR_X = (MAP_MAX_X // 2) - 250
 HOTBAR_Y = MAP_MAX_Y - 80
