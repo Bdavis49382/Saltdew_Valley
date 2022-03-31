@@ -16,6 +16,8 @@ SNAIL_MOVEMENT_RATE = .25
 
 SAVE_FILE = "saltdew_valley/assets/save_file.txt"
 
+REACH = 5
+
 # Screen
 
 MAP_MAX_X = 1801
@@ -56,7 +58,27 @@ SNAIL = "saltdew_valley/assets/Snail_001.png"
 SNAIL_STARTING_X = 20
 SNAIL_STARTING_Y = 9
 
+# Map
 MAP = "saltdew_valley/assets/finished map.png"
 
+# Roses
 FLOWER_GROUP = "flowers"
 ROSES = [f"saltdew_valley/assets/roses{n}.png" for n in range(1, 7)]
+
+# Borderbox
+BORDER_BOX = "saltdew_valley/assets/placebox.png"
+
+# Watering Can
+WATERING_CAN = "saltdew_valley/assets/bucket.png"
+
+# Hoe
+HOE = "saltdew_valley/assets/hoe.png"
+
+# Scythe
+SCYTHE = "saltdew_valley/assets/sythe.png"
+
+# Hotbar
+HOTBAR_GROUP = "hotbar"
+HOTBAR = "saltdew_valley/assets/hotbar.png"
+HOTBAR_X = (MAP_MAX_X // 2) - 250
+HOTBAR_Y = MAP_MAX_Y - 80

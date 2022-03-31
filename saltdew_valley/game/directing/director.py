@@ -14,13 +14,18 @@ from game.scripting.draw_actors_action import DrawActorsAction
 from game.scripting.draw_flowers_action import DrawFlowersAction
 from game.scripting.start_drawing_action import StartDrawingAction
 from game.scripting.end_drawing_action import EndDrawingAction
+from game.scripting.draw_mouse_box_action import Draw_mouse_box_action
+
+from game.casting.hotbar import Hotbar
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
+from game.services.mouse_service import MouseService
 from game.shared.tile import Tile
 from game.casting.rose import Rose
 
 import raylib
+
 
 
 
@@ -36,11 +41,12 @@ class Director:
 
         self.load_game()
         
+        
         self._is_game_over = False
 
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
-        
+        self.mouse_service = MouseService()
         
         self._script = Script()
         self._script.add_action("input", ControlActorsAction(self.keyboard_service))
@@ -48,6 +54,7 @@ class Director:
         self._script.add_action("update", Handle_collisions_action(self))
         self._script.add_action("output", StartDrawingAction(self.video_service))
         self._script.add_action("output", DrawActorsAction(self.video_service))
+        self._script.add_action("output",Draw_mouse_box_action(self.video_service,self.mouse_service,self._cast))
         self._script.add_action("output", DrawFlowersAction(self.video_service))
         self._script.add_action("output", EndDrawingAction(self.video_service))
 
@@ -123,7 +130,10 @@ class Director:
                             if data[0] == 'Text_bar':
                                 instance = Text_bar()
                                 self._cast.add_actor("text_bars",instance)
-                                pass
+                                
+                            if data[0] == 'Hotbar':
+                                instance = Hotbar()
+                                self._cast.add_actor(HOTBAR_GROUP,instance)
                             data.pop(0)
                             instance.load_save(data)
                 else:
@@ -134,6 +144,10 @@ class Director:
                     self._cast.add_actor("text_bars",Text_bar("Salt: ",Tile(1,2)))
 
                     self._cast.add_actor(FLOWER_GROUP,Rose())
+                    self._cast.add_actor(HOTBAR_GROUP, Hotbar())
+
+                    
+
         except:
             print("something is wrong with the save file!")
             

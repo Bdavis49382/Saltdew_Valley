@@ -86,7 +86,10 @@ class VideoService:
 
             pyray.draw_text_ex(self._fonts[FONT_FILE], text_bar.get_text(), pyray.Vector2(x,y), FONT_LARGE, 0, BLACK_TINT)
 
-
+    def draw_mouse_box(self,tile):
+        x = tile.get_x()
+        y = tile.get_y()
+        pyray.draw_texture_ex(self._textures[BORDER_BOX],pyray.Vector2(x,y),0,SCALE,NO_TINT)
 
     def draw_background(self):
         """Draws the background on the screen"""
@@ -141,11 +144,11 @@ class VideoService:
         self._textures[SNAIL] = pyray.load_texture(SNAIL)
         for n in ROSES:
             self._textures[n] = pyray.load_texture(n)
-
-    # def load_animations(self):
-    #     self._animations["roses"] = []
-    #     for n in ROSES:
-    #         self._animations["roses"].append(pyray.load_texture(n))
+        self._textures[HOE] = pyray.load_texture(HOE)
+        self._textures[SCYTHE] = pyray.load_texture(SCYTHE)
+        self._textures[WATERING_CAN] = pyray.load_texture(WATERING_CAN)
+        self._textures[BORDER_BOX] = pyray.load_texture(BORDER_BOX)
+        self._textures[HOTBAR] = pyray.load_texture(HOTBAR)
         
 
     def unload_fonts(self):
