@@ -39,6 +39,9 @@ class Animation:
             The rate of animation in frames.
         """
         return self._rate
+    
+    def half_rate(self):
+        self._rate = self._rate/2
 
     def reset_start_time(self):
         self._start = 0
@@ -49,6 +52,10 @@ class Animation:
     def set_index(self,index):
         self._index = index
 
+    def add_frames(self,addition):
+        self._frame += addition
+
+    
     def next_image(self):
         """Gets the next image to display.
 

@@ -40,3 +40,6 @@ class MouseService():
     def is_button_up(self, button):
         raylib_button = self._buttons[button]
         return pyray.is_mouse_button_up(raylib_button)
+
+    def get_mouse_wheel_scrolling(self):
+        return pyray.get_mouse_wheel_move()

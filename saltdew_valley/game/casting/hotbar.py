@@ -6,6 +6,7 @@ from game.items.scythe import Scythe
 from game.items.seed import Seed
 from game.shared.tile import Tile
 from game.items.watering_can import Watering_can
+from game.items.salt import Salt
 class Hotbar(Actor):
     """The only inventory the player has, it goes on the bottom of the screen and has slots with items in them
     
@@ -17,7 +18,7 @@ class Hotbar(Actor):
         self._texture = HOTBAR
         self._position = Point(HOTBAR_X,HOTBAR_Y)
         self._index = 0
-        self._slots = [Hoe(),Scythe(),Watering_can(),Seed("Rose")]
+        self._slots = [Hoe(),Scythe(),Watering_can(),Seed("Rose"),Seed("Lavender"),Seed("Tulip"),Seed("Violet"),Seed("Poppy"),Salt()]
 
     def get_slots(self):
         return self._slots

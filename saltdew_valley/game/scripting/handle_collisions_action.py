@@ -12,6 +12,7 @@ class Handle_collisions_action(Action):
     def execute(self,cast,script):
         self.check_for_game_over(cast)
         
+    
 
     def check_for_game_over(self,cast):
         player = cast.get_first_actor("players")

@@ -10,11 +10,11 @@ CAPTION = "Saltdew Valley"
 FRAME_RATE = 15
 
 FAST_AGING = 10
-NORMAL_AGING = 100
+NORMAL_AGING = 200
 
 SNAIL_MOVEMENT_RATE = .25
 
-SAVE_GAME_MODE = True
+SAVE_GAME_MODE = False
 
 SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
 
@@ -46,6 +46,7 @@ ROWS = 20
 # Text
 FONT_FILE = "saltdew_valley/assets/fonts/Quicksand-Bold.otf"
 FONT_LARGE = 48
+FONT_NORMAL = 36
 ALIGN_LEFT = 1
 
 
@@ -90,6 +91,9 @@ HOE = "saltdew_valley/assets/images/hoe.png"
 # Scythe
 SCYTHE = "saltdew_valley/assets/images/scythe.png"
 
+# Salt
+PLACED_SALT = "saltdew_valley/assets/images/salt_on_floor.png"
+SALT = "saltdew_valley/assets/images/salt_crystal.png"
 
 
 

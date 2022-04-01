@@ -34,4 +34,5 @@ class DrawActorsAction(Action):
         self._video_service.draw_actors(cast.get_actors("tilled_ground"))
         self._video_service.draw_text_bars(cast,cast.get_actors("text_bars"))
         self._video_service.draw_hotbar(cast.get_first_actor("hotbar"))
+        self._video_service.draw_actors(cast.get_actors("salt"))
         # self._video_service.flush_buffer()

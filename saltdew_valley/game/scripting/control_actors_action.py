@@ -14,13 +14,14 @@ class ControlActorsAction(Action):
         _keyboard_service (KeyboardService): An instance of KeyboardService.
     """
 
-    def __init__(self, keyboard_service):
+    def __init__(self, keyboard_service,mouse_service):
         """Constructs a new ControlActorsAction using the specified KeyboardService.
         
         Args:
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
+        self._mouse_service = mouse_service
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -51,6 +52,17 @@ class ControlActorsAction(Action):
             hotbar.set_index(7)
         if self._keyboard_service.is_key_down('9'):
             hotbar.set_index(8)
+        
+        if self._mouse_service.get_mouse_wheel_scrolling() >0:
+            if hotbar.get_index() !=8:
+                hotbar.set_index(hotbar.get_index()+1)
+            else:
+                hotbar.set_index(0)
+        elif self._mouse_service.get_mouse_wheel_scrolling() <0:
+            if hotbar.get_index() !=0:
+                hotbar.set_index(hotbar.get_index()-1)
+            else:
+                hotbar.set_index(8)
         
 
         max_speed = player.calculate_max_speed()

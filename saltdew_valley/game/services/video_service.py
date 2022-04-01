@@ -3,6 +3,8 @@ from constants import *
 import time
 from game.shared.point import Point
 from game.items.watering_can import Watering_can
+from game.casting.placed_salt import Placed_salt
+from game.shared.tile import Tile
 class VideoService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state 
     on the screen. 
@@ -63,13 +65,15 @@ class VideoService:
         for i in range(0,len(hotbar.get_slots())):
             item = hotbar.get_slots()[i]
             texture = self._textures[item.get_texture()]
-            x = hotbar.get_position().get_x()+(16*SCALE)+(i*48*SCALE)
-            y = hotbar.get_position().get_y()+(15*SCALE)
+            hotbar_position = hotbar.get_position()
+            x = hotbar_position.get_x()+(16*SCALE)+(i*48*SCALE)
+            y = hotbar_position.get_y()+(15*SCALE)
             position = pyray.Vector2(x,y)
             
             if i == hotbar.get_index():
                 pyray.draw_texture_ex(self._textures[BORDER_BOX],pyray.Vector2(x-1,y-1),0,SCALE*2,NO_TINT)
-                
+                pyray.draw_text_ex(self._fonts[FONT_FILE], item.get_description(), pyray.Vector2(hotbar_position.get_x(),hotbar_position.get_y()-CELL_SIZE-5), FONT_NORMAL, 0, BLACK_TINT)
+
             resize = 2
             if type(item) == type(Watering_can()):
                 resize = 1
@@ -84,6 +88,7 @@ class VideoService:
             actors (list): A list of actors to draw.
         """ 
         
+       
         for actor in actors:
             self.draw_actor(actor, centered)
 
@@ -168,6 +173,8 @@ class VideoService:
         self._textures[BORDER_BOX] = pyray.load_texture(BORDER_BOX)
         self._textures[HOTBAR] = pyray.load_texture(HOTBAR)
         self._textures[WATERING_CAN] = pyray.load_texture(WATERING_CAN)
+        self._textures[SALT] = pyray.load_texture(SALT)
+        self._textures[PLACED_SALT] = pyray.load_texture(PLACED_SALT)
 
         for n in ROSES:
             self._textures[n] = pyray.load_texture(n)

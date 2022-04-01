@@ -1,7 +1,7 @@
-from game.items.tool import Tool
+from game.items.item import Item
 from constants import HOE
 from game.casting.tilled_ground import Tilled_ground
-class Hoe(Tool):
+class Hoe(Item):
 
     def __init__(self) -> None:
         super().__init__()
@@ -15,3 +15,6 @@ class Hoe(Tool):
 
     def interact_with(self, cast, tile):
         cast.add_actor("tilled_ground",Tilled_ground(tile))
+
+    def get_description(self):
+        return "Hoe: Tills ground"

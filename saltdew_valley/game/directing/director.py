@@ -2,11 +2,12 @@ from pyray import Image
 from constants import *
 from game.casting.cast import Cast
 from game.casting.actor import Actor
-from game.casting.plant import Plant
 from game.casting.player import Player
 from game.casting.snail import Snail
 from game.casting.text_bar import Text_bar
 from game.casting.tilled_ground import Tilled_ground
+from game.casting.flower import Flower
+from game.items.seed import Seed
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import Move_actors_action
@@ -23,11 +24,13 @@ from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.services.mouse_service import MouseService
 from game.shared.tile import Tile
-from game.casting.rose import Rose
+
 
 import raylib
 
 from game.scripting.handle_clicks_action import Handle_clicks_action
+
+from game.casting.placed_salt import Placed_salt
 
 
 
@@ -52,7 +55,7 @@ class Director:
         self.mouse_service = MouseService()
         
         self._script = Script()
-        self._script.add_action("input", ControlActorsAction(self.keyboard_service))
+        self._script.add_action("input", ControlActorsAction(self.keyboard_service,self.mouse_service))
         self._script.add_action("update", Move_actors_action())
         self._script.add_action("update", Handle_collisions_action(self))
         self._script.add_action("update",Handle_clicks_action(self.mouse_service))
@@ -116,7 +119,7 @@ class Director:
             with open(SAVE_FILE,'r') as save_file:
                 actors = save_file.readlines()
                 if len(actors)>4 and SAVE_GAME_MODE:
-                    print(len(actors))
+                    
                     for actor in actors:
                         if len(actor) >1:
                             data = actor.split(',')
@@ -129,9 +132,25 @@ class Director:
                                 self._cast.add_actor("snails",instance)
                                 
                             if data[0] == 'Rose':
-                                instance = Rose(Tile(0,0))
+                                instance = Flower(Tile(0,0),Seed("Rose"))
+                                self._cast.add_actor("flowers",instance)
+                            
+                            if data[0] == "Lavender":
+                                instance = Flower(Tile(0,0),Seed("Lavender"))
+                                self._cast.add_actor("flowers",instance)
+                            
+                            if data[0] == "Tulip":
+                                instance = Flower(Tile(0,0),Seed("Tulip"))
+                                self._cast.add_actor("flowers",instance)
+                            
+                            if data[0] == "Violet":
+                                instance = Flower(Tile(0,0),Seed("Violet"))
                                 self._cast.add_actor("flowers",instance)
                                 
+                            if data[0] == "Poppy":
+                                instance = Flower(Tile(0,0),Seed("Poppy"))
+                                self._cast.add_actor("flowers",instance)
+
                             if data[0] == 'Text_bar':
                                 instance = Text_bar()
                                 self._cast.add_actor("text_bars",instance)
@@ -139,6 +158,10 @@ class Director:
                             if data[0] == 'Hotbar':
                                 instance = Hotbar()
                                 self._cast.add_actor(HOTBAR_GROUP,instance)
+
+                            if data[0] == 'Salt':
+                                instance = Placed_salt(Tile(0,0))
+                                self._cast.add_actor("salt",instance)
 
                             if data[0] == "Tilled_ground":
                                 instance = Tilled_ground(Tile(0,0))
