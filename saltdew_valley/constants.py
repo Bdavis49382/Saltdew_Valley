@@ -63,9 +63,13 @@ SNAIL_STARTING_Y = 9
 # Map
 MAP = "saltdew_valley/assets/images/finished map.png"
 
-# Roses
+# FLOWERS
 FLOWER_GROUP = "flowers"
 ROSES = [f"saltdew_valley/assets/images/roses{n}.png" for n in range(1, 7)]
+TULIPS = [f"saltdew_valley/assets/images/tulips{n}.png" for n in range(1, 7)]
+LAVENDER = [f"saltdew_valley/assets/images/lavender{n}.png" for n in range(1, 7)]
+POPPY = [f"saltdew_valley/assets/images/poppy{n}.png" for n in range(1, 7)]
+VIOLETS = [f"saltdew_valley/assets/images/violet{n}.png" for n in range(1, 7)]
 
 #Tilled Ground
 TILLED_GROUND = "saltdew_valley/assets/images/tilled_ground.png"

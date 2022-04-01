@@ -161,8 +161,6 @@ class VideoService:
         self._textures[MAP] = pyray.load_texture(MAP)
         self._textures[FARMER] = pyray.load_texture(FARMER)
         self._textures[SNAIL] = pyray.load_texture(SNAIL)
-        for n in ROSES:
-            self._textures[n] = pyray.load_texture(n)
         self._textures[HOE] = pyray.load_texture(HOE)
         self._textures[SCYTHE] = pyray.load_texture(SCYTHE)
         self._textures[WATERING_CAN] = pyray.load_texture(WATERING_CAN)
@@ -170,6 +168,21 @@ class VideoService:
         self._textures[BORDER_BOX] = pyray.load_texture(BORDER_BOX)
         self._textures[HOTBAR] = pyray.load_texture(HOTBAR)
         self._textures[WATERING_CAN] = pyray.load_texture(WATERING_CAN)
+
+        for n in ROSES:
+            self._textures[n] = pyray.load_texture(n)
+
+        for n in TULIPS:
+            self._textures[n] = pyray.load_texture(n)
+
+        for n in LAVENDER:
+            self._textures[n] = pyray.load_texture(n)
+
+        for n in POPPY:
+            self._textures[n] = pyray.load_texture(n)
+        
+        for n in VIOLETS:
+            self._textures[n] = pyray.load_texture(n)
         
 
     def unload_fonts(self):
