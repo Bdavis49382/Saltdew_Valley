@@ -1,4 +1,4 @@
-from constants import CELL_SIZE
+from constants import *
 
 
 class Point:
@@ -31,8 +31,8 @@ class Point:
         Returns:
             Point: A new Point that is the sum.
         """
-        x = self._x + other.get_x()
-        y = self._y + other.get_y()
+        x = (self._x + other.get_x()) % MAX_X
+        y = (self._y + other.get_y()) % MAX_Y
         return Point(x, y)
 
     def equals(self, other):

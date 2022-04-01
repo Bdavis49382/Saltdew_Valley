@@ -1,4 +1,5 @@
 from game.shared.tile import Tile
+from constants import *
 
 class Actor():
     """A visible, moveable thing that participates in the game. 
