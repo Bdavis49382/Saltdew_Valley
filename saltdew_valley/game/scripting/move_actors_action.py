@@ -21,7 +21,3 @@ class Move_actors_action(Action):
         
         for actor in actors:
             actor.move_next()
-            
-        # for player in cast.get_actors("players"):
-        #     player.move_next()
-    
