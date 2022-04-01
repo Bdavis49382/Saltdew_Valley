@@ -27,6 +27,8 @@ from game.casting.rose import Rose
 
 import raylib
 
+from game.scripting.handle_clicks_action import Handle_clicks_action
+
 
 
 
@@ -41,7 +43,7 @@ class Director:
         self._cast = Cast()
 
         self.load_game()
-        self._cast.add_actor("tilled_ground",Tilled_ground(Tile(FARMER_STARTING_X,FARMER_STARTING_Y+3)))
+        
         
         self._is_game_over = False
 
@@ -53,6 +55,7 @@ class Director:
         self._script.add_action("input", ControlActorsAction(self.keyboard_service))
         self._script.add_action("update", Move_actors_action())
         self._script.add_action("update", Handle_collisions_action(self))
+        self._script.add_action("update",Handle_clicks_action(self.mouse_service))
         self._script.add_action("output", StartDrawingAction(self.video_service))
         self._script.add_action("output", DrawActorsAction(self.video_service))
         self._script.add_action("output",Draw_mouse_box_action(self.video_service,self.mouse_service,self._cast))
@@ -109,10 +112,11 @@ class Director:
                     save_file.write(actor.create_save()+'\n')
     
     def load_game(self):
-        try:
+        
             with open(SAVE_FILE,'r') as save_file:
                 actors = save_file.readlines()
-                if len(actors) >2 and SAVE_GAME_MODE:
+                if len(actors)>4 and SAVE_GAME_MODE:
+                    print(len(actors))
                     for actor in actors:
                         if len(actor) >1:
                             data = actor.split(',')
@@ -125,7 +129,7 @@ class Director:
                                 self._cast.add_actor("snails",instance)
                                 
                             if data[0] == 'Rose':
-                                instance = Rose()
+                                instance = Rose(Tile(0,0))
                                 self._cast.add_actor("flowers",instance)
                                 
                             if data[0] == 'Text_bar':
@@ -135,6 +139,10 @@ class Director:
                             if data[0] == 'Hotbar':
                                 instance = Hotbar()
                                 self._cast.add_actor(HOTBAR_GROUP,instance)
+
+                            if data[0] == "Tilled_ground":
+                                instance = Tilled_ground(Tile(0,0))
+                                self._cast.add_actor("tilled_ground",instance)
                             data.pop(0)
                             instance.load_save(data)
                 else:
@@ -144,12 +152,12 @@ class Director:
                     self._cast.add_actor("text_bars",Text_bar("Age:",Tile(1,0)))
                     self._cast.add_actor("text_bars",Text_bar("Salt: ",Tile(1,2)))
 
-                    self._cast.add_actor(FLOWER_GROUP,Rose())
+                    
                     self._cast.add_actor(HOTBAR_GROUP, Hotbar())
+                    
 
                     
 
-        except:
-            print("something is wrong with the save file!")
+        
             
             

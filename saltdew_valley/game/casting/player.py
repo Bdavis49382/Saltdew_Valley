@@ -20,7 +20,7 @@ class Player(Actor):
         self._position = Tile(FARMER_STARTING_X,FARMER_STARTING_Y)
         self._velocity = Tile(0,0)
         self._age = 20
-        self._salt = 200
+        self._salt = 20
         self._clock = 0
     
     def move_next(self):
@@ -50,6 +50,12 @@ class Player(Actor):
     def set_salt(self,salt):
         self._salt = salt
 
+    def earn(self,salt):
+        self._salt += salt
+    
+    def spend(self,salt):
+        self._salt -= salt
+        
     def create_save(self):
         data_string = f'Player,{self._position.get_tiled_x()},{self._position.get_tiled_y()},{self._age},{self._salt},{self._clock}'
         return data_string
