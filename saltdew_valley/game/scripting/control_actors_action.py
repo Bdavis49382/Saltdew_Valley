@@ -33,8 +33,25 @@ class ControlActorsAction(Action):
         player = cast.get_first_actor("players")
         hotbar = cast.get_first_actor("hotbar")
 
-        # if self._keyboard_service.is_key_down('1'):
-        #     hotbar.set_index(1)
+        if self._keyboard_service.is_key_down('1'):
+            hotbar.set_index(0)
+        if self._keyboard_service.is_key_down('2'):
+            hotbar.set_index(1)
+        if self._keyboard_service.is_key_down('3'):
+            hotbar.set_index(2)
+        if self._keyboard_service.is_key_down('4'):
+            hotbar.set_index(3)
+        if self._keyboard_service.is_key_down('5'):
+            hotbar.set_index(4)
+        if self._keyboard_service.is_key_down('6'):
+            hotbar.set_index(5)
+        if self._keyboard_service.is_key_down('7'):
+            hotbar.set_index(6)
+        if self._keyboard_service.is_key_down('8'):
+            hotbar.set_index(7)
+        if self._keyboard_service.is_key_down('9'):
+            hotbar.set_index(8)
+        
 
         max_speed = player.calculate_max_speed()
 

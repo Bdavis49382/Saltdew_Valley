@@ -70,6 +70,10 @@ ROSES = [f"saltdew_valley/assets/images/roses{n}.png" for n in range(1, 7)]
 #Tilled Ground
 TILLED_GROUND = "saltdew_valley/assets/images/tilled_ground.png"
 
+#Watering Can
+
+WATERING_CAN = "saltdew_valley/assets/images/watering-can.png"
+
 # Borderbox
 BORDER_BOX = "saltdew_valley/assets/images/placebox.png"
 
@@ -89,5 +93,5 @@ SCYTHE = "saltdew_valley/assets/images/scythe.png"
 HOTBAR_GROUP = "hotbar"
 
 HOTBAR = "saltdew_valley/assets/images/hotbar.png"
-HOTBAR_X = (MAP_MAX_X // 2) - 250
-HOTBAR_Y = MAP_MAX_Y - 80
+HOTBAR_X = (MAX_X // 2) - 250
+HOTBAR_Y = MAX_Y - 80

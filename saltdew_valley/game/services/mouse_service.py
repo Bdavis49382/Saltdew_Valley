@@ -1,7 +1,7 @@
 import pyray
 from game.shared.point import Point
 from game.shared.tile import Tile
-
+from constants import CELL_SIZE
 class MouseService():
     """ A Raylib implementation of MouseService."""
 
@@ -17,9 +17,9 @@ class MouseService():
         return Point(x, y)
 
     def get_tiled_coordinates(self):
-        x = pyray.get_mouse_x()-(pyray.get_mouse_x()%16)
-        y = pyray.get_mouse_y() - (pyray.get_mouse_y()%16)
-        return Tile(x/16,y/16)
+        x = pyray.get_mouse_x()-(pyray.get_mouse_x()%CELL_SIZE)
+        y = pyray.get_mouse_y() - (pyray.get_mouse_y()%CELL_SIZE)
+        return Tile(x/CELL_SIZE,y/CELL_SIZE)
 
     def has_mouse_moved(self):
         mouse_delta = pyray.get_mouse_delta()
