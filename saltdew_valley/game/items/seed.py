@@ -3,15 +3,19 @@ from game.casting.rose import Rose
 from constants import *
 from game.casting.tilled_ground import Tilled_ground
 from game.shared.tile import Tile
+from game.casting.flower import Flower
 class Seed(Tool):
     """An item that can be placed to create a plant
             
     """
     
-    def __init__(self) -> None:
+    def __init__(self,type) -> None:
         super().__init__()
-        self._texture = ROSES[0]
-        self._cost = 10
+        self._type = type
+        if type == "Rose":
+            self._texture = ROSES[0]
+            self._cost = 10
+
         
     
     def can_interact(self, cast, tile):
@@ -29,13 +33,14 @@ class Seed(Tool):
                 sharers.append(actor)
 
         for actor in sharers:
-            if type(actor) == type(Rose(Tile(0,0))):
+            if type(actor) == type[Flower]:
                 output = False
-                
+
         return output
 
 
     def interact_with(self, cast, tile):
         self._player.spend(self._cost)
-        cast.add_actor(FLOWER_GROUP,Rose(tile))
+        if self._type == "Rose":
+            cast.add_actor(FLOWER_GROUP,Rose(tile))
         

@@ -17,7 +17,7 @@ class Hotbar(Actor):
         self._texture = HOTBAR
         self._position = Point(HOTBAR_X,HOTBAR_Y)
         self._index = 0
-        self._slots = [Hoe(),Scythe(),Watering_can(),Seed()]
+        self._slots = [Hoe(),Scythe(),Watering_can(),Seed("Rose")]
 
     def get_slots(self):
         return self._slots
