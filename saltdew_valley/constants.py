@@ -58,7 +58,7 @@ FARMER_STARTING_Y = 9
 SNAIL = "saltdew_valley/assets/images/Snail_001.png"
 SNAIL_STARTING_X = 20
 SNAIL_STARTING_Y = 15
-SNAIL_MOVEMENT_RATE = .1
+SNAIL_MOVEMENT_RATE = .05
 
 # Map
 MAP = "saltdew_valley/assets/images/finished map.png"
