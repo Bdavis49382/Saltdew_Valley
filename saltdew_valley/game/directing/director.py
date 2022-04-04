@@ -24,6 +24,7 @@ from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.services.mouse_service import MouseService
 from game.shared.tile import Tile
+from game.casting.sound import Sound
 
 
 import raylib
@@ -65,7 +66,7 @@ class Director:
         self._script.add_action("output",Draw_mouse_box_action(self.video_service,self.mouse_service,self._cast))
         self._script.add_action("output", DrawFlowersAction(self.video_service))
         self._script.add_action("output", EndDrawingAction(self.video_service))
-        self._script.add_action("output",PlaySoundAction(self.audio_service,BACKGROUND_MUSIC))
+        #self._script.add_action("output",PlaySoundAction(self.audio_service,BACKGROUND_MUSIC))
 
 
         
@@ -77,6 +78,8 @@ class Director:
         self.video_service.load_textures()
         self.video_service.load_fonts()
 
+        self.audio_service.load_sounds()
+        PlaySoundAction(self.audio_service, BACKGROUND_MUSIC).execute(self._cast,self._script)
 
         while self.video_service.is_window_open():
             

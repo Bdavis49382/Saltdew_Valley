@@ -23,6 +23,8 @@ REACH = 5
 MAP_MAX_X = 1801
 MAP_MAX_Y = 809
 
+SNAIL_WRAPS = False
+
 pyray.init_window(0,0,"title")
 # print(pyray.get_screen_width())
 SCALE = pyray.get_screen_width()/MAP_MAX_X
@@ -49,10 +51,10 @@ ALIGN_LEFT = 1
 
 
 # sounds
-BACKGROUND_MUSIC = "saltdew_valley\assets\sound\getting salt .wav"
+BACKGROUND_MUSIC = "saltdew_valley/assets/sound/getting_salt.wav"
 
 # Sprites
-FARMER_GROUP = "players"
+FARMER_GROUP = "playexsxrs"
 FARMER = "saltdew_valley/assets/images/Farmer_001.png"
 FARMER_STARTING_X = 6
 FARMER_STARTING_Y = 9

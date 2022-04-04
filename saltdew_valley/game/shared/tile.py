@@ -42,18 +42,42 @@ class Tile(Point):
         return other * self
     
     def compare_to(self, other):
+
         if type(other) == Tile:
             bool_x = 1 if self._tiled_x < other.get_tiled_x() else 0
             bool_y = 1 if self._tiled_y < other.get_tiled_y() else 0
             bool_x = -1 if self._tiled_x > other.get_tiled_x() else bool_x
             bool_y = -1 if self._tiled_y > other.get_tiled_y() else bool_y
-            return Tile(bool_x, bool_y)
         elif type(other) == Point:
             bool_x = 1 if self._x < other.get_x() else 0
             bool_y = 1 if self._y < other.get_y() else 0
             bool_x = -1 if self._x > other.get_x() else bool_x
             bool_y = -1 if self._y > other.get_y() else bool_y
-            return Tile(bool_x, bool_y)
+        if SNAIL_WRAPS:
+            # check X wrap.
+            
+            if bool_x == -1:
+                dist_x = self.get_x() - other.get_x()
+                wrap_dist_x = MAP_MAX_X - self.get_x() + other.get_x()
+                if wrap_dist_x > dist_x:
+                    bool_x = 1
+            elif bool_x == 1:
+                dist_x = other.get_x() - self.get_x()
+                wrap_dist_x = MAP_MAX_X - other.get_x() + self.get_x()
+                if wrap_dist_x > dist_x:
+                    bool_x = -1
+            # Check y wrap
+            if bool_y == -1:
+                dist_y = self.get_y() - other.get_y()
+                wrap_dist_y = MAP_MAX_Y - self.get_y() + other.get_y()
+                if wrap_dist_y > dist_y:
+                    bool_y = 1
+            elif bool_y == 1:
+                dist_y = other.get_y() - self.get_y()
+                wrap_dist_y = MAP_MAX_Y - other.get_y() + self.get_y()
+                if wrap_dist_y > dist_y:
+                    bool_y = -1
+        return Tile(bool_x, bool_y)
 
     # def __gt__(self, other) -> bool:
     #     if type(other) == Tile:

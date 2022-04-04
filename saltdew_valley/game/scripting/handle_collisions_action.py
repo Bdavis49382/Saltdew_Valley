@@ -11,8 +11,18 @@ class Handle_collisions_action(Action):
 
     def execute(self,cast,script):
         self.check_for_game_over(cast)
+        self.check_for_salt(cast)
         
-    
+    def check_for_salt(self,cast):
+        snail = cast.get_first_actor("snails")
+        salt = cast.get_actors("salt")
+
+        for piece_of_salt in salt:
+            if piece_of_salt.get_position().equals(snail.get_tiled_coordinates()):
+                cast.remove_actor("salt",piece_of_salt)
+                snail.set_position(Tile(0,0))
+                
+            
 
     def check_for_game_over(self,cast):
         player = cast.get_first_actor("players")

@@ -1,6 +1,4 @@
 from game.directing.director import Director
-import raylib
-import constants
 
 
 
