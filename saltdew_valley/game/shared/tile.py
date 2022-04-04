@@ -43,14 +43,14 @@ class Tile(Point):
     
     def compare_to(self, other):
         if type(other) == Tile:
-            bool_x = 1 if self._tiled_x > other.get_tiled_x() else 0
-            bool_y = 1 if self._tiled_y > other.get_tiled_y() else 0
+            bool_x = 1 if self._tiled_x < other.get_tiled_x() else 0
+            bool_y = 1 if self._tiled_y < other.get_tiled_y() else 0
             bool_x = -1 if self._tiled_x > other.get_tiled_x() else bool_x
             bool_y = -1 if self._tiled_y > other.get_tiled_y() else bool_y
             return Tile(bool_x, bool_y)
         elif type(other) == Point:
-            bool_x = 1 if self._x > other.get_x() else 0
-            bool_y = 1 if self._y > other.get_y() else 0
+            bool_x = 1 if self._x < other.get_x() else 0
+            bool_y = 1 if self._y < other.get_y() else 0
             bool_x = -1 if self._x > other.get_x() else bool_x
             bool_y = -1 if self._y > other.get_y() else bool_y
             return Tile(bool_x, bool_y)

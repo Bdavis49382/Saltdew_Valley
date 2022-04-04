@@ -12,8 +12,6 @@ FRAME_RATE = 15
 FAST_AGING = 10
 NORMAL_AGING = 200
 
-SNAIL_MOVEMENT_RATE = .25
-
 SAVE_GAME_MODE = False
 
 SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
@@ -59,7 +57,8 @@ FARMER_STARTING_Y = 9
 
 SNAIL = "saltdew_valley/assets/images/Snail_001.png"
 SNAIL_STARTING_X = 20
-SNAIL_STARTING_Y = 9
+SNAIL_STARTING_Y = 15
+SNAIL_MOVEMENT_RATE = .1
 
 # Map
 MAP = "saltdew_valley/assets/images/finished map.png"
