@@ -17,9 +17,9 @@ from game.scripting.draw_flowers_action import DrawFlowersAction
 from game.scripting.start_drawing_action import StartDrawingAction
 from game.scripting.end_drawing_action import EndDrawingAction
 from game.scripting.draw_mouse_box_action import Draw_mouse_box_action
-
+from game.scripting.play_sound_action import PlaySoundAction
 from game.casting.hotbar import Hotbar
-
+from game.services.audio_service import AudioService
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.services.mouse_service import MouseService
@@ -53,6 +53,7 @@ class Director:
         self.keyboard_service = KeyboardService()
         self.video_service = VideoService()
         self.mouse_service = MouseService()
+        self.audio_service = AudioService()
         
         self._script = Script()
         self._script.add_action("input", ControlActorsAction(self.keyboard_service,self.mouse_service))
@@ -64,6 +65,7 @@ class Director:
         self._script.add_action("output",Draw_mouse_box_action(self.video_service,self.mouse_service,self._cast))
         self._script.add_action("output", DrawFlowersAction(self.video_service))
         self._script.add_action("output", EndDrawingAction(self.video_service))
+        self._script.add_action("output",PlaySoundAction(self.audio_service,BACKGROUND_MUSIC))
 
 
         
