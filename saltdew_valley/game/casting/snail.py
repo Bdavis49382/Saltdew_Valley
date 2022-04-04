@@ -16,17 +16,17 @@ class Snail(Actor):
         """This function moves the snail object toward the position of it's player."""
         
         target = self._player.get_position()
-
-        my_x = self._position.get_tiled_x()
-        that_x = target.get_tiled_x()
-        my_y = self._position.get_tiled_y()
-        that_y = target.get_tiled_y()
+        print("running snail.move_next()")
+        # my_x = self._position.get_tiled_x()
+        # that_x = target.get_tiled_x()
+        # my_y = self._position.get_tiled_y()
+        # that_y = target.get_tiled_y()
 
         # # print(that_x > my_x)
-        # # change = self._position.compare_to(target) * SNAIL_MOVEMENT_RATE
-        # # self._position += change
-        my_x += .05 if that_x > my_x else -.05
-        my_y += .05 if that_y > my_y else -.05
+        change = self._position.compare_to(target) * SNAIL_MOVEMENT_RATE
+        self._position += change
+        # my_x += .05 if that_x > my_x else -.05
+        # my_y += .05 if that_y > my_y else -.05
         #self._position = Tile((my_x),(my_y))
 
     def create_save(self):
