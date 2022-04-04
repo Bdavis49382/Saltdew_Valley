@@ -50,6 +50,8 @@ FONT_NORMAL = 36
 ALIGN_LEFT = 1
 
 
+# sounds
+BACKGROUND_MUSIC = "saltdew_valley\assets\sound\getting salt .wav"
 
 # Sprites
 FARMER_GROUP = "players"
