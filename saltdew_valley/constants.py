@@ -12,7 +12,7 @@ FRAME_RATE = 15
 FAST_AGING = 10
 NORMAL_AGING = 200
 
-SAVE_GAME_MODE = False
+SAVE_GAME_MODE = True
 
 SAVE_FILE = "saltdew_valley/assets/data/save_file.txt"
 
